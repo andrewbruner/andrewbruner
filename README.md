@@ -1,4 +1,9 @@
-### Hi there 👋
+# <samp>Hello</samp>
+
+<samp>My name is Andrew. I'm a barista by day and a developer by night.<br />
+I love coffee and coding, java and JavaScript.</samp>
+
+<samp>Contact me on <a href="https://twitter.com/andrewbruner" target="_blank">Twitter</a></samp>
 
 <!--
 **andrewbruner/andrewbruner** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

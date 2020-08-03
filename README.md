@@ -6,7 +6,7 @@ I love coffee and coding, java and JavaScript.</samp>
 <samp>Contact me on <a href="https://twitter.com/andrewbruner" target="_blank">Twitter</a></samp>
 
 [![Andrew Bruner's GitHub Stats](https://github-readme-stats.vercel.app/api?username=andrewbruner&show_icons=true&include_all_commits=true&hide=stars,contribs)](https://github.com/anuraghazra/github-readme-stats)  
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact&hide=glsl)](https://github.com/anuraghazra/github-readme-stats)
 
 <!--
 **andrewbruner/andrewbruner** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

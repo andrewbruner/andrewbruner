@@ -11,5 +11,5 @@
 <a href="http://35.239.35.211/">NASA Exoplanet Archive</a><br />
 &emsp;*Online astronomical exoplanet and stellar catalog and data service*<br />
 <br />
-<a href="/techdegree/">Treehouse Techdegree</a><br />
+<a href="https://andrewbruner.github.io/techdegree/">Treehouse Techdegree</a><br />
 &emsp;*Collection of personal projects from JavaScript bootcamp*</samp>

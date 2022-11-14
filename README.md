@@ -2,7 +2,7 @@
 
 <samp>I'm a Front-end Web and JavaScript Developer.</samp>
 
-<samp>Contact me on <a href="https://twitter.com/andrewbruner">Twitter</a>, <a rel="me" href="https://universeodon.com/@andrewbruner">Mastodon</a>, or <a href="https://www.linkedin.com/in/andrewjbruner">LinkedIn</a></samp>
+<samp>Contact me on <a href="https://twitter.com/andrewbruner">Twitter</a>, <a rel="me" href="https://fosstodon.org/@andrewbruner">Mastodon</a>, or <a href="https://www.linkedin.com/in/andrewjbruner">LinkedIn</a></samp>
 
 ### <samp>Projects</samp>
 

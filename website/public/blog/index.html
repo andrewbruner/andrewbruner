@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
   </head>
 	<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+		<div id="posts"></div>
 		<nav id="header" class="fixed w-full z-10 top-0">
 			<div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
 			<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
@@ -176,10 +177,10 @@
 			<!--Next & Prev Links-->
 			<div class="font-sans flex justify-between content-center px-4 pb-12">
 				<div class="text-left">
-					<a href="#"><span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">&lt; Previous Page</span></a>
+					<a href="#"><span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">&lt; Previous</span></a>
 				</div>
 				<div class="text-right">
-					<a href="#"><span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Next Page &gt;</span></a>
+					<a href="#"><span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Next &gt;</span></a>
 				</div>
 			</div>
 			<!--/Next & Prev Links-->
@@ -254,6 +255,9 @@
 			//Javascript to toggle the menu
 			document.getElementById('nav-toggle').onclick = function() {
 				document.getElementById("nav-content").classList.toggle("hidden");
+				if (window.scrollY <= 10) {
+					document.querySelector('#header').classList.toggle('shadow');
+				}
 			}
 		</script>
 	</body>

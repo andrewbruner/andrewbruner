@@ -3,21 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Second Post | </title>
+    <title>The Algorithm of the ISBN | </title>
     <meta name="author" content="Andrew Bruner" />
     <meta name="description" content="description here" />
     <meta name="keywords" content="developer,web developer,front-end,javascript" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-		<link rel="stylesheet" href="./css/style.css" />
   </head>
+
 	<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-		<div id="posts"></div>
 		<nav id="header" class="fixed w-full z-10 top-0 bg-gray-100">
 			<div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
 			<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
 				<div class="pl-4">
 					<a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
-						Minimal Blog
+						The Algorithm of the ISBN
 					</a>
 				</div>
 				<div class="block lg:hidden pr-4">
@@ -44,8 +43,150 @@
 			</div>
 		</nav>
 
-		<p>Second post content</p>
+		<div class="container w-full md:max-w-3xl mx-auto pt-20">
+		
+<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+	<!--Title-->
+	<div class="font-sans">
+		<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">The Algorithm of the ISBN</h1>
+		<p class="text-sm md:text-base font-normal text-gray-600">Published 10 October 2021</p>
+	</div>
 
+	<!--Post Content-->
+	<div class="post-content">
+		<p>Today I learned that the ISBN numbers on books have a built-in validation algorithm. Follow along here to see how I wrote my own JavaScript function that uses this algorithm and validates any ISBN argument given to it.</p>
+<h1>Overview</h1>
+<p>International Standard Book Numbers (ISBN) started with 10 digits, but after 2007 were updated to 13 digits. Each system (ISBN-10 and ISBN-13) has its own algorithm for checking validity but are similar in their content and execution.</p>
+<p>Each ISBN contains the following groups of numbers:</p>
+<p>ISBN [ 978<sup><strong>1</strong></sup>-12<sup><strong>2</strong></sup>-3456<sup><strong>3</strong></sup>-789<sup><strong>4</strong></sup>-0<sup><strong>5</strong></sup> ]</p>
+<ol>
+<li>Prefix: Currently either 978 or 979 (only used for ISBN-13).</li>
+<li>Registration Group: Corresponds to a shared language or country/territory.</li>
+<li>Registrant: Corresponds to the publisher of the book.</li>
+<li>Publication: Corresponds to the specific book published.</li>
+<li>Check Digit: <em>This is where the magic happens.</em></li>
+</ol>
+<p>Altogether, this includes a <em>lot</em> of numbers. For libraries and individuals that are manually inputting these numbers into their systems, it would be easy for them to miss just one or flip two adjacent digits. Luckily, there are systems in each type of ISBN to verify that the number input is indeed a valid ISBN.</p>
+<h1>ISBN-10</h1>
+<p><code>ISBN [ 039309670X ]</code></p>
+<ol>
+<li>Taking each digit (not including check digit), multiply the first by 10, the second by 9, the third by 8 and so on through the first 9 digits.<br>
+<code>0 x 10 = 0</code><br>
+<code>3 x 9 = 27</code><br>
+<code>9 x 8 = 72</code><br>
+<code>3 x 7 = 21</code><br>
+<code>0 x 6 = 0</code><br>
+<code>9 x 5 = 45</code><br>
+<code>6 x 4 = 24</code><br>
+<code>7 x 3 = 21</code><br>
+<code>0 x 2 = 0</code></li>
+<li>Add each new sum together.<br>
+<code>0 + 27 + 72 + 21 + 0 + 45 + 24 + 21 + 0 = 210</code></li>
+<li>Find the remainder after dividing that sum by 11 (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder">modulo operation</a>)<br>
+<code>210 % 11 = 1</code></li>
+<li>Subtract that number from 11.<br>
+<code>11 - 1 = 10</code></li>
+<li>That number should be the check digit, or if 10, should be X (roman numeral 10).<br>
+<code>10 = X</code></li>
+</ol>
+<p>Here is that entire sequence in JavaScript form:</p>
+<pre><code class="language-javascript">function isbn10IsValid(isbn) {
+  // split isbn into an array
+  let isbnArr = isbn.split('');
+  // remove and remember the check digit
+  let checkDigit = isbnArr.pop();
+  //  multiply each digit by 10, 9, 8. . .
+  for (let i = 0; i &lt; isbnArr.length; i++) {
+    isbnArr[i] = isbnArr[i] * (10 - i);
+  }
+  // find sum of all digits
+  let sum = isbnArr.reduce((acc, curr) =&gt; {
+    return acc + curr;
+  });
+  // find the remainder of sum mod 11
+  let mod = sum % 11;
+  // calculate the final check digit
+  let checkDigitCalc = 11 - mod;
+  // convert check digit to X if needed
+  if (checkDigitCalc == 10) {
+    checkDigitCalc = 'X';
+  }
+  // compare final check digits and return boolean
+  if (checkDigitCalc == checkDigit) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+</code></pre>
+<h1>ISBN-13</h1>
+<p><code>ISBN [ 9780393096705 ]</code></p>
+<ol>
+<li>Taking each digit (not including check digit), multiply the first by 1 and the second by 3. Repeat this through the first 12 digits.<br>
+<code>9 x 1 = 9</code><br>
+<code>7 x 3 = 21</code><br>
+<code>8 x 1 = 8</code><br>
+<code>0 x 3 = 0</code><br>
+<code>3 x 1 = 3</code><br>
+<code>9 x 3 = 27</code><br>
+<code>3 x 1 = 3</code><br>
+<code>0 x 3 = 0</code><br>
+<code>9 x 1 = 9</code><br>
+<code>6 x 3 = 18</code><br>
+<code>7 x 1 = 7</code><br>
+<code>0 x 3 = 0</code></li>
+<li>Add each new sum together.<br>
+<code>9 + 21 + 8 + 0 + 3 + 27 + 3 + 0 + 9 + 18 + 7 + 0 = 105</code></li>
+<li>Find the remainder after dividing that sum by 10 (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder">modulo operation</a>)<br>
+<code>105 % 10 = 5</code></li>
+<li>Subtract that number from 10. That number should be the check digit.<br>
+<code>10 - 5 = 5</code></li>
+</ol>
+<p>Here is that entire sequence in JavaScript form:</p>
+<pre><code class="language-javascript">function isbn13IsValid(isbn) {
+  // split isbn into an array
+  let isbnArr = isbn.split('');
+  // remove and remember the check digit
+  let checkDigit = isbnArr.pop();
+  //  multiply each digit by 1, 3 (repeat. . .)
+  isbnArr = isbnArr.map((num, idx) =&gt; {
+    if (idx % 2) {
+      return num * 3;
+    }
+    else {
+      return num * 1;
+    }
+  });
+  // find sum of all digits
+  let sum = isbnArr.reduce((acc, curr) =&gt; {
+    return acc + curr;
+  });
+  // find the remainder of sum mod 10
+  let mod = sum % 10;
+  // calculate the final check digit
+  let checkDigitCalc = 10 - mod;
+  // compare final check digits and return boolean
+  if (checkDigitCalc == checkDigit) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+</code></pre>
+<h1>Conclusion</h1>
+<p>There you have it. Now you know that the barcodes on the back of all your favorite books have a built in algorithm to verify their validity. If you ever find yourself writing a bookkeeping app or library management tool, you can use this knowledge to help test your user input concerning book ISBNs. Or you could take out a calculator and impress your friends next time you're at a bookstore!</p>
+
+	</div>
+
+	<!--Tags -->
+	<div class="text-base md:text-sm text-gray-500 px-4 py-6">
+		Tags: <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a> . <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a>
+	</div>
+</div>
+
+		</div>
 
 		<footer class="bg-white border-t border-gray-400 shadow">
 			<div class="container max-w-4xl mx-auto flex py-8">
@@ -175,7 +316,7 @@
 			}
 			const preList = document.querySelectorAll('.post-content pre');
 			for (pre of preList) {
-				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4');
+				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4', 'my-6');
 			}
 			const codeList = document.querySelectorAll('.post-content code');
 			for (code of codeList) {

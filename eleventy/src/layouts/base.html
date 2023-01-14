@@ -8,16 +8,15 @@
     <meta name="description" content="description here" />
     <meta name="keywords" content="developer,web developer,front-end,javascript" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-		<link rel="stylesheet" href="./css/style.css" />
   </head>
+
 	<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-		<div id="posts"></div>
 		<nav id="header" class="fixed w-full z-10 top-0 bg-gray-100">
 			<div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
 			<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
 				<div class="pl-4">
 					<a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
-						Minimal Blog
+						{{ title }}
 					</a>
 				</div>
 				<div class="block lg:hidden pr-4">
@@ -44,7 +43,9 @@
 			</div>
 		</nav>
 
+		<div class="container w-full md:max-w-3xl mx-auto pt-20">
 		{{ content }}
+		</div>
 
 		<footer class="bg-white border-t border-gray-400 shadow">
 			<div class="container max-w-4xl mx-auto flex py-8">
@@ -174,7 +175,7 @@
 			}
 			const preList = document.querySelectorAll('.post-content pre');
 			for (pre of preList) {
-				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4');
+				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4', 'my-6');
 			}
 			const codeList = document.querySelectorAll('.post-content code');
 			for (code of codeList) {

@@ -4,4 +4,4 @@
 
 <samp>Visit my blog at <a href="https://andrewbruner.dev">andrewbruner.dev</a></samp>
 
-<samp>Contact me on <a rel="me" href="https://fosstodon.org/@andrewbruner">Mastodon</a>.</samp>
+<samp>Contact me on <a href="https://fosstodon.org/@andrewbruner">Mastodon</a>.</samp>

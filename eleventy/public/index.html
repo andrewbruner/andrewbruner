@@ -51,8 +51,8 @@
 <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
 	<!--Title-->
 	<div class="font-sans">
-		<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><a href="./the-algorithm-of-the-isbn/">The Algorithm of the ISBN</a></h1>
-		<p class="text-sm md:text-base font-normal text-gray-600">Published 10 October 2021</p>
+		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center"><a class="text-green-500 no-underline hover:underline" href="./the-algorithm-of-the-isbn/">The Algorithm of the ISBN</a></h1>
+		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">Published 10 October 2021</p>
 	</div>
 
 	<!--Post Content-->
@@ -136,8 +136,8 @@
 <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
 	<!--Title-->
 	<div class="font-sans">
-		<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><a href="./websites-with-integrity/">Websites with Integrity</a></h1>
-		<p class="text-sm md:text-base font-normal text-gray-600">Published 22 August 2021</p>
+		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center"><a class="text-green-500 no-underline hover:underline" href="./websites-with-integrity/">Websites with Integrity</a></h1>
+		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">Published 22 August 2021</p>
 	</div>
 
 	<!--Post Content-->
@@ -163,8 +163,8 @@
 <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
 	<!--Title-->
 	<div class="font-sans">
-		<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><a href="./building-a-simple-javascript-blockchain/">Building a Simple JavaScript Blockchain</a></h1>
-		<p class="text-sm md:text-base font-normal text-gray-600">Published 15 August 2021</p>
+		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center"><a class="text-green-500 no-underline hover:underline" href="./building-a-simple-javascript-blockchain/">Building a Simple JavaScript Blockchain</a></h1>
+		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">Published 15 August 2021</p>
 	</div>
 
 	<!--Post Content-->
@@ -354,31 +354,31 @@
 			/*Apply tailwind classes for post-content*/
 			const h1List = document.querySelectorAll('.post-content h1');
 			for (h1 of h1List) {
-				h1.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'pt-6', 'pb-2', 'text-3xl', 'md:text-4xl');
+				h1.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'mt-0', 'mb-7', 'text-3xl', 'md:text-4xl');
 			}
 			const h2List = document.querySelectorAll('.post-content h2');
 			for (h2 of h2List) {
-				h2.classList.add('font-semibold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-2xl', 'md:text-3xl');
+				h2.classList.add('font-semibold', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-8', 'text-2xl', 'md:text-3xl');
 			}
 			const h3List = document.querySelectorAll('.post-content h3');
 			for (h3 of h3List) {
-				h3.classList.add('font-medium', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-xl', 'md:text-2xl');
+				h3.classList.add('font-medium', 'font-sans', 'break-normal', 'text-gray-900', 'mt-10', 'mb-4', 'text-xl', 'md:text-2xl');
 			}
 			const h4List = document.querySelectorAll('.post-content h4');
 			for (h4 of h4List) {
-				h4.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-lg', 'md:text-xl');
+				h4.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-lg', 'md:text-xl');
 			}
 			const h5List = document.querySelectorAll('.post-content h5');
 			for (h5 of h5List) {
-				h5.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-base', 'md:text-lg');
+				h5.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-base', 'md:text-lg');
 			}
 			const h6List = document.querySelectorAll('.post-content h6');
 			for (h6 of h6List) {
-				h6.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-base', 'md:text-base');
+				h6.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-base', 'md:text-base');
 			}
 			const pList = document.querySelectorAll('.post-content p');
 			for (p of pList) {
-				p.classList.add('py-6');
+				p.classList.add('my-6');
 			}
 			const ulList = document.querySelectorAll('.post-content ul');
 			for (ul of ulList) {
@@ -390,7 +390,7 @@
 			}
 			const liList = document.querySelectorAll('.post-content li');
 			for (li of liList) {
-				li.classList.add('py-3');
+				li.classList.add('my-3');
 			}
 			const aList = document.querySelectorAll('.post-content a');
 			for (a of aList) {

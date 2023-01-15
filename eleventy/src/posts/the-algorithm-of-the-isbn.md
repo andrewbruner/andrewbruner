@@ -1,8 +1,8 @@
 ---
-title: The Algorithm of the ISBN
+postTitle: The Algorithm of the ISBN
 published: '10 October 2021'
 layout: post.html
-permalink: '/{{ title | slugify }}/'
+permalink: '/{{ postTitle | slugify }}/'
 ---
 
 Today I learned that the ISBN numbers on books have a built-in validation algorithm. Follow along here to see how I wrote my own JavaScript function that uses this algorithm and validates any ISBN argument given to it.

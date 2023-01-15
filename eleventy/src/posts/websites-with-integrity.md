@@ -1,8 +1,8 @@
 ---
-title: Websites with Integrity
+postTitle: Websites with Integrity
 published: '22 August 2021'
 layout: post.html
-permalink: '/{{ title | slugify }}/'
+permalink: '/{{ postTitle | slugify }}/'
 ---
 
 I was recently listening to a podcast episode of [Syntax](https://syntax.fm/show/379/hasty-treat-the-weird-and-wonderful-less-than-link-greater-than-tag) where the subject of HTML `<link>` tags was discussed. One of the many reasons we may use link tags is to *link* our page to another document, like a CSS stylesheet, a web font, or a file from a content delivery network (CDN). The latter may look something like this:

@@ -1,8 +1,8 @@
 ---
-title: Building a Simple JavaScript Blockchain
+postTitle: Building a Simple JavaScript Blockchain
 published: '15 August 2021'
 layout: post.html
-permalink: '/{{ title | slugify }}/'
+permalink: '/{{ postTitle | slugify }}/'
 ---
 
 When I learn about a new technology, I like to dive in deep: reading articles and documentation, watching videos, and experimenting with code. Recently, I got into blockchain technology and after wrapping my head around the initial concept, I was inspired to create my own blockchain (albeit rudimentary).

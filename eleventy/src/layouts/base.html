@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }} | {{ subtitle }}</title>
     <meta name="author" content="Andrew Bruner" />
-    <meta name="description" content="description here" />
+    <meta name="description" content="Front-end web and JavaScript developer" />
     <meta name="keywords" content="developer,web developer,front-end,javascript" />
+		<link rel="stylesheet" href="./css/prism-vsc-dark-plus.css" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
   </head>
 
@@ -127,27 +128,27 @@
 			/*Apply tailwind classes for post-content*/
 			const h1List = document.querySelectorAll('.post-content h1');
 			for (h1 of h1List) {
-				h1.classList.add('py-2', 'font-sans', 'text-5xl');
+				h1.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'pt-6', 'pb-2', 'text-3xl', 'md:text-4xl');
 			}
 			const h2List = document.querySelectorAll('.post-content h2');
 			for (h2 of h2List) {
-				h2.classList.add('py-2', 'font-sans', 'text-4xl');
+				h2.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-2xl', 'md:text-3xl');
 			}
 			const h3List = document.querySelectorAll('.post-content h3');
 			for (h3 of h3List) {
-				h3.classList.add('py-2', 'font-sans', 'text-3xl');
+				h3.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-xl', 'md:text-2xl');
 			}
 			const h4List = document.querySelectorAll('.post-content h4');
 			for (h4 of h4List) {
-				h4.classList.add('py-2', 'font-sans', 'text-2xl');
+				h4.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-lg', 'md:text-xl');
 			}
 			const h5List = document.querySelectorAll('.post-content h5');
 			for (h5 of h5List) {
-				h5.classList.add('py-2', 'font-sans', 'text-xl');
+				h5.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-base', 'md:text-lg');
 			}
 			const h6List = document.querySelectorAll('.post-content h6');
 			for (h6 of h6List) {
-				h6.classList.add('py-2', 'font-sans', 'text-lg');
+				h6.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-base', 'md:text-base');
 			}
 			const pList = document.querySelectorAll('.post-content p');
 			for (p of pList) {
@@ -175,11 +176,13 @@
 			}
 			const preList = document.querySelectorAll('.post-content pre');
 			for (pre of preList) {
-				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4', 'my-6');
+				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4', 'my-6', 'overflow-x-auto');
 			}
 			const codeList = document.querySelectorAll('.post-content code');
 			for (code of codeList) {
-				code.classList.add('break-words', 'whitespace-pre-wrap');
+				if (code.parentElement.tagName.toLowerCase() !== 'pre') {
+					code.classList.add('break-words', 'whitespace-pre-wrap', 'p-1', 'text-base', 'bg-gray-300');
+				}
 			}
 		</script>
 	</body>

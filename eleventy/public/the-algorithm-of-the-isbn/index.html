@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Algorithm of the ISBN | </title>
+    <title> | </title>
     <meta name="author" content="Andrew Bruner" />
-    <meta name="description" content="description here" />
+    <meta name="description" content="Front-end web and JavaScript developer" />
     <meta name="keywords" content="developer,web developer,front-end,javascript" />
+		<link rel="stylesheet" href="./css/prism-vsc-dark-plus.css" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
   </head>
 
@@ -16,7 +17,7 @@
 			<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
 				<div class="pl-4">
 					<a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="#">
-						The Algorithm of the ISBN
+						
 					</a>
 				</div>
 				<div class="block lg:hidden pr-4">
@@ -45,7 +46,7 @@
 
 		<div class="container w-full md:max-w-3xl mx-auto pt-20">
 		
-<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
 	<!--Title-->
 	<div class="font-sans">
 		<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">The Algorithm of the ISBN</h1>
@@ -90,36 +91,7 @@
 <code>10 = X</code></li>
 </ol>
 <p>Here is that entire sequence in JavaScript form:</p>
-<pre><code class="language-javascript">function isbn10IsValid(isbn) {
-  // split isbn into an array
-  let isbnArr = isbn.split('');
-  // remove and remember the check digit
-  let checkDigit = isbnArr.pop();
-  //  multiply each digit by 10, 9, 8. . .
-  for (let i = 0; i &lt; isbnArr.length; i++) {
-    isbnArr[i] = isbnArr[i] * (10 - i);
-  }
-  // find sum of all digits
-  let sum = isbnArr.reduce((acc, curr) =&gt; {
-    return acc + curr;
-  });
-  // find the remainder of sum mod 11
-  let mod = sum % 11;
-  // calculate the final check digit
-  let checkDigitCalc = 11 - mod;
-  // convert check digit to X if needed
-  if (checkDigitCalc == 10) {
-    checkDigitCalc = 'X';
-  }
-  // compare final check digits and return boolean
-  if (checkDigitCalc == checkDigit) {
-    return true
-  }
-  else {
-    return false
-  }
-}
-</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isbn10IsValid</span><span class="token punctuation">(</span><span class="token parameter">isbn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// split isbn into an array</span><br>  <span class="token keyword">let</span> isbnArr <span class="token operator">=</span> isbn<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// remove and remember the check digit</span><br>  <span class="token keyword">let</span> checkDigit <span class="token operator">=</span> isbnArr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">//  multiply each digit by 10, 9, 8. . .</span><br>  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> isbnArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    isbnArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> isbnArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token comment">// find sum of all digits</span><br>  <span class="token keyword">let</span> sum <span class="token operator">=</span> isbnArr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> acc <span class="token operator">+</span> curr<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// find the remainder of sum mod 11</span><br>  <span class="token keyword">let</span> mod <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">11</span><span class="token punctuation">;</span><br>  <span class="token comment">// calculate the final check digit</span><br>  <span class="token keyword">let</span> checkDigitCalc <span class="token operator">=</span> <span class="token number">11</span> <span class="token operator">-</span> mod<span class="token punctuation">;</span><br>  <span class="token comment">// convert check digit to X if needed</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>checkDigitCalc <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    checkDigitCalc <span class="token operator">=</span> <span class="token string">'X'</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token comment">// compare final check digits and return boolean</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>checkDigitCalc <span class="token operator">==</span> checkDigit<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token boolean">true</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">else</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token boolean">false</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
 <h1>ISBN-13</h1>
 <p><code>ISBN [ 9780393096705 ]</code></p>
 <ol>
@@ -144,37 +116,7 @@
 <code>10 - 5 = 5</code></li>
 </ol>
 <p>Here is that entire sequence in JavaScript form:</p>
-<pre><code class="language-javascript">function isbn13IsValid(isbn) {
-  // split isbn into an array
-  let isbnArr = isbn.split('');
-  // remove and remember the check digit
-  let checkDigit = isbnArr.pop();
-  //  multiply each digit by 1, 3 (repeat. . .)
-  isbnArr = isbnArr.map((num, idx) =&gt; {
-    if (idx % 2) {
-      return num * 3;
-    }
-    else {
-      return num * 1;
-    }
-  });
-  // find sum of all digits
-  let sum = isbnArr.reduce((acc, curr) =&gt; {
-    return acc + curr;
-  });
-  // find the remainder of sum mod 10
-  let mod = sum % 10;
-  // calculate the final check digit
-  let checkDigitCalc = 10 - mod;
-  // compare final check digits and return boolean
-  if (checkDigitCalc == checkDigit) {
-    return true
-  }
-  else {
-    return false
-  }
-}
-</code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isbn13IsValid</span><span class="token punctuation">(</span><span class="token parameter">isbn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// split isbn into an array</span><br>  <span class="token keyword">let</span> isbnArr <span class="token operator">=</span> isbn<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// remove and remember the check digit</span><br>  <span class="token keyword">let</span> checkDigit <span class="token operator">=</span> isbnArr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">//  multiply each digit by 1, 3 (repeat. . .)</span><br>  isbnArr <span class="token operator">=</span> isbnArr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">num<span class="token punctuation">,</span> idx</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span>idx <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> num <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">else</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> num <span class="token operator">*</span> <span class="token number">1</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// find sum of all digits</span><br>  <span class="token keyword">let</span> sum <span class="token operator">=</span> isbnArr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> acc <span class="token operator">+</span> curr<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// find the remainder of sum mod 10</span><br>  <span class="token keyword">let</span> mod <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span><br>  <span class="token comment">// calculate the final check digit</span><br>  <span class="token keyword">let</span> checkDigitCalc <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">-</span> mod<span class="token punctuation">;</span><br>  <span class="token comment">// compare final check digits and return boolean</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>checkDigitCalc <span class="token operator">==</span> checkDigit<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token boolean">true</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">else</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token boolean">false</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
 <h1>Conclusion</h1>
 <p>There you have it. Now you know that the barcodes on the back of all your favorite books have a built in algorithm to verify their validity. If you ever find yourself writing a bookkeeping app or library management tool, you can use this knowledge to help test your user input concerning book ISBNs. Or you could take out a calculator and impress your friends next time you're at a bookstore!</p>
 
@@ -268,27 +210,27 @@
 			/*Apply tailwind classes for post-content*/
 			const h1List = document.querySelectorAll('.post-content h1');
 			for (h1 of h1List) {
-				h1.classList.add('py-2', 'font-sans', 'text-5xl');
+				h1.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'pt-6', 'pb-2', 'text-3xl', 'md:text-4xl');
 			}
 			const h2List = document.querySelectorAll('.post-content h2');
 			for (h2 of h2List) {
-				h2.classList.add('py-2', 'font-sans', 'text-4xl');
+				h2.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-2xl', 'md:text-3xl');
 			}
 			const h3List = document.querySelectorAll('.post-content h3');
 			for (h3 of h3List) {
-				h3.classList.add('py-2', 'font-sans', 'text-3xl');
+				h3.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-xl', 'md:text-2xl');
 			}
 			const h4List = document.querySelectorAll('.post-content h4');
 			for (h4 of h4List) {
-				h4.classList.add('py-2', 'font-sans', 'text-2xl');
+				h4.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-lg', 'md:text-xl');
 			}
 			const h5List = document.querySelectorAll('.post-content h5');
 			for (h5 of h5List) {
-				h5.classList.add('py-2', 'font-sans', 'text-xl');
+				h5.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-base', 'md:text-lg');
 			}
 			const h6List = document.querySelectorAll('.post-content h6');
 			for (h6 of h6List) {
-				h6.classList.add('py-2', 'font-sans', 'text-lg');
+				h6.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'py-2', 'text-base', 'md:text-base');
 			}
 			const pList = document.querySelectorAll('.post-content p');
 			for (p of pList) {
@@ -316,11 +258,13 @@
 			}
 			const preList = document.querySelectorAll('.post-content pre');
 			for (pre of preList) {
-				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4', 'my-6');
+				pre.classList.add('bg-gray-900', 'rounded', 'text-white', 'font-mono', 'text-base', 'p-2', 'md:p-4', 'my-6', 'overflow-x-auto');
 			}
 			const codeList = document.querySelectorAll('.post-content code');
 			for (code of codeList) {
-				code.classList.add('break-words', 'whitespace-pre-wrap');
+				if (code.parentElement.tagName.toLowerCase() !== 'pre') {
+					code.classList.add('break-words', 'whitespace-pre-wrap', 'p-1', 'text-base', 'bg-gray-300');
+				}
 			}
 		</script>
 	</body>

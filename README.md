@@ -1,9 +1,5 @@
-## <samp>Hello. I'm Andrew.</samp>
+## <samp>Hello. I'm Drew.</samp>
 
-<samp>I'm a Front-end Web and JavaScript Developer.</samp>
-
-<samp>Visit my blog at <a href="https://andrewbruner.dev">andrewbruner.dev</a></samp>
-
-<samp>Contact me on <a href="https://fosstodon.org/@andrewbruner">Mastodon</a>.</samp>
+<samp>I'm a full-stack web and JavaScript developer.</samp>
 
 [//]: # (Hello World)
